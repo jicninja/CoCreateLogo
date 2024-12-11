@@ -3,7 +3,6 @@
 const title = 'COCREATE';
 const size = 130;
 const fontFile = 'Muli-Black.ttf';
-const showText = true;
 const textAlpha = 8;
 const backgroundColor = 255;
 const strokeAlpha = 40;
@@ -11,8 +10,8 @@ const strokeColor = 0;
 
 const fontSampleFactor = 0.8;
 
-const noiseZoom = 0.0015;
-const noiseOctaves = 9;
+const noiseZoom = 0.001;
+const noiseOctaves = 10;
 const noiseFalloff = 0.15;
 
 const zOffsetChange = 0;
@@ -66,11 +65,10 @@ function start() {
 }
 
 function draw() {
-  if (showText) {
-    noStroke();
-    text(title, width / 2 - textWidth(title) / 2, height / 2);
-    stroke(strokeColor, strokeAlpha);
-  }
+  noStroke();
+  text(title, width / 2 - textWidth(title) / 2, height / 2);
+  stroke(strokeColor, strokeAlpha);
+
   for (let pt = 0; pt < points.length; pt++) {
     let p = points[pt];
     let noiseX = p.x * noiseZoom;
